@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VERIFI - Unbiased AI News</title>
+  <style>
+      /* Basic styling for layout */
+      body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: #000000;
+          margin: 0;
+          font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .container {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          background: rgb(6, 7, 28);
+          box-shadow: 0 0 40px rgb(66, 45, 254);
+          width: 80vw;
+          height: 80vh;
+          border-radius: 0vh 20vh;
+          overflow: hidden;
+      }
+
+    
+      .container::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url("VERIFI/background.jpg");
+          background-size: cover;
+          background-position: center;
+          opacity: 0.05;
+          z-index: 0;
+      }
+
+      /* Hover Container (Hidden Initially) */
+      .hover-container {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 50vh;
+          position: relative;
+      }
+
+      /* Image inside Hover Container */
+      .logo {
+          width: 100vh;
+          height: auto;
+          transform: translateX(20vh);
+          transition: transform 0.5s ease-in-out;
+      }
+
+      /* Hidden Description */
+      .hover-description {
+          max-width: 40vh;
+          color: white;
+          font-size: 2.5vh;
+          opacity: 0;
+          transform: translateX(-40vh);
+          transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+      }
+
+      .container:hover .hover-container {
+          opacity: 1;
+      }
+
+      .container:hover .logo {
+          transform: translateX(-15vh);
+      }
+
+      .container:hover .hover-description {
+          opacity: 1;
+          transform: translateX(-10vh);
+      }
+
+      /* Email Section */
+      .email-text {
+          font-size: 3vh;
+          color: white;
+          margin-top: 10vh;
+      }
+
+      .email-container {
+          width: 50vh;
+          display: flex;
+          position: absolute;
+          bottom: 6vh;
+          transform: translateX(-25vh);
+      }
+
+      .email-input {
+          width: 50vh;
+          height: 5vh;
+          padding: 1vh;
+          border-radius: 5px;
+          font-size: 3vh;
+          font-weight: bold;
+          background-color: #000000;
+          border: 0.3vh solid #007bff7a;
+          color: white;
+      }
+
+      .email-input:focus{
+          outline: none;
+          border-color: #007bff;
+          box-shadow: 0 0 3vh rgb(66, 45, 254);
+      }
+      .button{
+        border-radius: 10px;
+        border: 0.3vh solid #007bff7a;
+        background-color: #000000;
+        
+      }
+      .button:hover {
+        border-color: #007bff;
+        box-shadow: 0 0 3vh rgb(66, 45, 254);
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+      <!-- Hover Container (Appears on Hover) -->
+      <div class="hover-container">
+          <img src="VERIFI/Verifi.png" alt="VERIFI AI News" class="logo">
+          <div class="hover-description">
+              <p>
+                  VERIFI uses advanced AI to gather news from various sources and present 
+                  it in an unbiased manner. Our goal is to provide factual, well-rounded 
+                  news without the influence of bias, allowing readers to make informed 
+                  decisions based on truth.
+              </p>
+          </div>
+      </div>
+      
+      <div class="email-text">Interested? Enter your email here!</div>
+
+      <!-- Email Section -->
+        <form name="submit-to-google-sheet">
+            <div class="email-container">
+                <input type="email" name="Email" class="email-input" placeholder="Enter your email" />
+                <button type="submit" class="button"><img src="VERIFI/send button.png" width="30vh" ></button>
+            </div>
+        </form>
+        <!--<span id="msg"></span>-->
+  </div>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbydeyveaPy8Fhyw73Hzxrv5wbezobJmL7yJULpjOkthfcHlc5wxpfw6NzywV15y5m2EOQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            /*msg.innerHTML ="Thank you for registering interest!"
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000) --- doesnt work since not styled properly... yet*/
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
