@@ -5,13 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VERIFI - Unbiased AI News</title>
   <style>
+
+    /* styles for desktop devices */
+
+@media only screen and (min-width: 992px) {   
+
       /* Basic styling for layout */
       body {
+          width: 100%;
+          height: 100vh;
           font-family: Arial, sans-serif;
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 100vh;
           background-color: #000000;
           margin: 0;
           font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -21,11 +27,10 @@
           position: relative;
           display: flex;
           flex-direction: column;
-          align-items: center;
           background: rgb(6, 7, 28);
           box-shadow: 0 0 40px rgb(66, 45, 254);
-          width: 60vw;
-          height: 80vh;
+          width: 60%;
+          height: 80%;
           border: 0.3vh solid #1e00ff;
           border-radius: 0vh 20vh;
           overflow: hidden;
@@ -55,30 +60,30 @@
 
       /* Image inside Hover Container */
       .logo {
-          width: 100vh;
+          width: 70%;
           height: auto;
-          transform: translateX(12vh);
+          transform: translateX(10vw);
           transition: transform 0.5s ease-in-out;
       }
 
       /* Hidden Description */
       .hover-description {
-          width: auto;
+          min-width: 20%;
           text-align:center;
           color: white;
-          font-size: 2.5vh;
+          font-size: 1.5vw;
           opacity: 0;
-          transform: translateX(-40vh);
+          transform: translateX(-40%);
           transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
       }
 
       .container:hover .logo {
-          transform: translateX(-15vh);
+          transform: translateX(-15%);
       }
 
       .container:hover .hover-description {
           opacity: 1;
-          transform: translateX(-15vh);
+          transform: translateX(-15%);
       }
       
 
@@ -90,22 +95,24 @@
 
       /* Email Section */
       .email-text {
+          text-align: center;
           font-size: 3vh;
-          color: white;
+          color: whitesmoke;
           margin-top: 10vh;
         }
 
-
-      .email-container {
-          width: 50vh;
+       .email-container {
+          width: 100%;
           display: flex;
+          justify-content: center;
+          align-items: center;
           position: absolute;
-          bottom: 6vh;
-          transform: translateX(-25vh);
-      }
+          bottom: 6%;
+        }
 
       .email-input {
-          width: 50vh;
+          width: 80%;
+          max-width: 500px;
           height: 5vh;
           padding: 1vh;
           border-radius: 5px;
@@ -122,7 +129,10 @@
           border-color: #007bff;
           box-shadow: 0 0 3vh rgb(66, 45, 254);
       }
+
       .button{
+        width: 5vw;
+        height: 7.5vh;
         border-radius: 10px;
         border: 0.3vh solid #007bff7a;
         background-color: #000000;
@@ -133,6 +143,292 @@
         border-color: #007bff;
         box-shadow: 0 0 3vh rgb(66, 45, 254);
       }
+
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+/* styles for tablet devices */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* Basic styling for layout */
+    body {
+        width: 100%;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #693737;
+        margin: 0;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background: rgb(6, 7, 28);
+        box-shadow: 0 0 40px rgb(66, 45, 254);
+        width: 60%;
+        height: 80%;
+        border: 0.3vh solid #1e00ff;
+        border-radius: 0vh 20vh;
+        overflow: hidden;
+        transition: ease-in-out 1s;
+
+    }
+
+
+    .container:hover{
+      border: 0.3vh solid #94ddff;
+      box-shadow: 0 0 40px rgb(1, 145, 255);
+
+
+    }
+  
+    /* Hover Container (Hidden Initially) */
+    .hover-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50vh;
+        position: relative;
+
+    }
+
+    /* Image inside Hover Container */
+    .logo {
+        width: 70%;
+        height: auto;
+        transform: translateX(13vw);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    /* Hidden Description */
+    .hover-description {
+        min-width: 40%;
+        text-align:center;
+        color: white;
+        font-size: 1.5vw;
+        opacity: 0;
+        transform: translateX(-40%);
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    .container:hover .logo {
+        transform: translateX(-5%);
+    }
+
+    .container:hover .hover-description {
+        opacity: 1;
+        transform: translateX(-25%);
+    }
+    
+
+    .success_msg {
+      color: cyan;
+      transform: translateY(10vh);
+      font-size: 2vh;
+    }
+
+    /* Email Section */
+    .email-text {
+        text-align: center;
+        font-size: 3vh;
+        color: whitesmoke;
+        margin-top: 10vh;
+      }
+
+     .email-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 6%;
+      }
+
+    .email-input {
+        width: 80%;
+        max-width: 300px;
+        height: 5vh;
+        padding: 1vh;
+        border-radius: 5px;
+        font-size: 3vh;
+        font-weight: bold;
+        background-color: #000000;
+        border: 0.3vh solid #007bff7a;
+        color: white;
+        transition: ease-in-out 0.5s;
+    }
+
+    .email-input:focus{
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 3vh rgb(66, 45, 254);
+    }
+
+    .button{
+      width: 5vw;
+      height: 7.5vh;
+      border-radius: 10px;
+      border: 0.3vh solid #007bff7a;
+      background-color: #000000;
+      transition: ease-in-out 0.5s;
+      
+    }
+    .button:hover {
+      border-color: #007bff;
+      box-shadow: 0 0 3vh rgb(66, 45, 254);
+    }
+
+}
+
+
+/* --------------------------------------------------------------------------------------- */
+
+/* styles for mobile devices */
+  
+@media only screen and (max-width: 767px) {
+   /* Basic styling for layout */
+   body {
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: rgb(6, 7, 28);
+    box-shadow: 0 0 40px rgb(66, 45, 254);
+    width: 80%;
+    height: 80%;
+    border: 0.3vh solid #1e00ff;
+    border-radius: 0vh 20vh;
+    overflow: hidden;
+    transition: ease-in-out 1s;
+
+}
+
+
+.container:hover{
+  border: 0.3vh solid #94ddff;
+  box-shadow: 0 0 40px rgb(1, 145, 255);
+
+
+}
+
+/* Hover Container (Hidden Initially) */
+.hover-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50vh;
+    position: relative;
+
+}
+
+/* Image inside Hover Container */
+.logo {
+    width: 80%;
+    height: auto;
+    transform: translateX(26vw);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Hidden Description */
+.hover-description {
+    min-width: 60%;
+    text-align:center;
+    color: white;
+    font-size: 2.5vw;
+    opacity: 0;
+    transform: translateX(-31vw);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.container:hover .logo {
+    transform: translateY(-30%) translateX(26vw);
+}
+
+.container:hover .hover-description {
+    opacity: 1;
+    transform: translateX(-31vw) translateY(60%);
+}
+
+
+.success_msg {
+  text-align: center;
+  color: cyan;
+  transform: translateY(10vh);
+  font-size: 2vh;
+}
+
+/* Email Section */
+.email-text {
+    text-align: center;
+    font-size: 2vh;
+    color: whitesmoke;
+    margin-top: 3vh;
+  }
+
+ .email-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20%;
+  }
+
+.email-input {
+    width: 40%;
+    max-width: 400px;
+    height: 3vh;
+    padding: 1vh;
+    border-radius: 5px;
+    font-size: 1.5vh;
+    font-weight: bold;
+    background-color: #000000;
+    border: 0.3vh solid #007bff7a;
+    color: white;
+    transition: ease-in-out 0.5s;
+}
+
+.email-input:focus{
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 3vh rgb(66, 45, 254);
+}
+
+.button{
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 0.3vh solid #007bff7a;
+  background-color: #000000;
+  transition: ease-in-out 0.5s;
+  
+}
+.button:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 3vh rgb(66, 45, 254);
+}
+
+}
   </style>
 </head>
 <body>
@@ -156,7 +452,7 @@
         <form name="submit-to-google-sheet">
             <div class="email-container">
                 <input type="email" name="Email" class="email-input" placeholder="Enter your email" />
-                <button type="submit" class="button"><img src="images/send button.png" width="30vh" ></button>
+                <button type="submit" class="button"><img src="images/send button.png" width="100%" ></button>
             </div>
         </form>
         <span id="msg" class="success_msg"></span>
