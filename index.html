@@ -22,30 +22,25 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-          text-align: center;
           background: rgb(6, 7, 28);
           box-shadow: 0 0 40px rgb(66, 45, 254);
-          width: 80vw;
+          width: 60vw;
           height: 80vh;
+          border: 0.3vh solid #1e00ff;
           border-radius: 0vh 20vh;
           overflow: hidden;
+          transition: ease-in-out 1s;
+
       }
 
+
+      .container:hover{
+        border: 0.3vh solid #94ddff;
+        box-shadow: 0 0 40px rgb(1, 145, 255);
+
+
+      }
     
-      .container::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: url("https://raw.githubusercontent.com/ArBw2411881/VERIFI/main/images/background.jpg ");
-          background-size: cover;
-          background-position: center;
-          opacity: 0.05;
-          z-index: 0;
-      }
-
       /* Hover Container (Hidden Initially) */
       .hover-container {
           display: flex;
@@ -55,28 +50,26 @@
           width: 100%;
           height: 50vh;
           position: relative;
+
       }
 
       /* Image inside Hover Container */
       .logo {
           width: 100vh;
           height: auto;
-          transform: translateX(20vh);
+          transform: translateX(12vh);
           transition: transform 0.5s ease-in-out;
       }
 
       /* Hidden Description */
       .hover-description {
-          max-width: 40vh;
+          width: auto;
+          text-align:center;
           color: white;
           font-size: 2.5vh;
           opacity: 0;
           transform: translateX(-40vh);
           transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-      }
-
-      .container:hover .hover-container {
-          opacity: 1;
       }
 
       .container:hover .logo {
@@ -85,7 +78,14 @@
 
       .container:hover .hover-description {
           opacity: 1;
-          transform: translateX(-10vh);
+          transform: translateX(-15vh);
+      }
+      
+
+      .success_msg {
+        color: cyan;
+        transform: translateY(10vh);
+        font-size: 2vh;
       }
 
       /* Email Section */
@@ -93,7 +93,8 @@
           font-size: 3vh;
           color: white;
           margin-top: 10vh;
-      }
+        }
+
 
       .email-container {
           width: 50vh;
@@ -113,6 +114,7 @@
           background-color: #000000;
           border: 0.3vh solid #007bff7a;
           color: white;
+          transition: ease-in-out 0.5s;
       }
 
       .email-input:focus{
@@ -124,6 +126,7 @@
         border-radius: 10px;
         border: 0.3vh solid #007bff7a;
         background-color: #000000;
+        transition: ease-in-out 0.5s;
         
       }
       .button:hover {
@@ -153,10 +156,10 @@
         <form name="submit-to-google-sheet">
             <div class="email-container">
                 <input type="email" name="Email" class="email-input" placeholder="Enter your email" />
-                <button type="submit" class="button"><img src="https://raw.githubusercontent.com/ArBw2411881/VERIFI/main/images/send button.png" width="30vh" ></button>
+                <button type="submit" class="button"><img src="images/send button.png" width="30vh" ></button>
             </div>
         </form>
-        <!--<span id="msg"></span>-->
+        <span id="msg" class="success_msg"></span>
   </div>
   <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbydeyveaPy8Fhyw73Hzxrv5wbezobJmL7yJULpjOkthfcHlc5wxpfw6NzywV15y5m2EOQ/exec'
@@ -166,10 +169,10 @@
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {
-            /*msg.innerHTML ="Thank you for registering interest!"
+            msg.innerHTML ="Thank you for registering interest!"
             setTimeout(function(){
                 msg.innerHTML=""
-            },5000) --- doesnt work since not styled properly... yet*/
+            },5000) 
             form.reset()
         })
         .catch(error => console.error('Error!', error.message))
